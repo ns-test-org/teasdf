@@ -68,7 +68,7 @@ export default function FartApp() {
 
       {/* Footer */}
       <div className="absolute bottom-4 text-white text-sm opacity-75">
-        Made with 💨 and ❤️
+        Made with ❤️ and 💨
       </div>
 
       <style jsx>{`
@@ -90,6 +90,7 @@ export default function FartApp() {
     </div>
   );
 }
+
 
 
 
