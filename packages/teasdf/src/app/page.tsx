@@ -30,7 +30,7 @@ export default function FartApp() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-orange-400 via-red-500 to-yellow-600 flex flex-col items-center justify-center relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 text-6xl animate-bounce">💨</div>
@@ -144,6 +144,7 @@ export default function FartApp() {
     </div>
   );
 }
+
 
 
 
