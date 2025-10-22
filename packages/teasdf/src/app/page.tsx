@@ -66,6 +66,51 @@ export default function FartApp() {
         </div>
       ))}
 
+      {/* Health Benefits Section */}
+      <div className="absolute top-full w-full bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900 text-white p-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-6 text-yellow-300">
+            💨 The Science of Farts 💨
+          </h2>
+          <div className="space-y-4 text-lg leading-relaxed">
+            <p className="text-center text-xl mb-8 text-blue-200">
+              Did you know that farting is not only natural but actually healthy for you?
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 className="text-xl font-semibold mb-3 text-green-300">🌱 Natural Detox</h3>
+                <p>Farting helps your body release excess gas and toxins, keeping your digestive system healthy and balanced.</p>
+              </div>
+              
+              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 className="text-xl font-semibold mb-3 text-blue-300">💪 Digestive Health</h3>
+                <p>Regular gas release indicates a healthy gut microbiome working hard to break down your food properly.</p>
+              </div>
+              
+              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 className="text-xl font-semibold mb-3 text-purple-300">🧠 Stress Relief</h3>
+                <p>Holding in gas can cause discomfort and bloating. Letting it out naturally reduces physical stress on your body.</p>
+              </div>
+              
+              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                <h3 className="text-xl font-semibold mb-3 text-pink-300">😊 Mental Wellness</h3>
+                <p>Embracing natural bodily functions without shame promotes a healthier relationship with your body and self-acceptance.</p>
+              </div>
+            </div>
+            
+            <div className="text-center mt-8 p-6 bg-yellow-500/20 rounded-lg">
+              <p className="text-xl font-semibold text-yellow-200">
+                Remember: The average person farts 14-23 times per day!
+              </p>
+              <p className="mt-2 text-lg">
+                So go ahead, embrace the gas, and celebrate your body's natural processes! 🎉
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Footer */}
       <div className="absolute bottom-4 text-white text-sm opacity-75">
         Made with ❤️ and 💨
@@ -90,6 +135,7 @@ export default function FartApp() {
     </div>
   );
 }
+
 
 
 
