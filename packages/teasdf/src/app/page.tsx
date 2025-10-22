@@ -50,7 +50,7 @@ export default function FartApp() {
         
         <button
           onClick={handleFartClick}
-          className="bg-green-400 hover:bg-green-500 text-black font-bold py-6 px-12 text-2xl shadow-2xl transform hover:scale-110 transition-all duration-200 active:scale-95 border-4 border-green-600 hover:border-green-700"
+          className="animate-pulse bg-green-400 hover:bg-green-500 text-black font-bold py-6 px-12 text-2xl shadow-2xl transform hover:scale-110 transition-all duration-200 active:scale-95 border-4 border-green-600 hover:border-green-700"
         >
           FART
         </button>
@@ -144,6 +144,7 @@ export default function FartApp() {
     </div>
   );
 }
+
 
 
 
