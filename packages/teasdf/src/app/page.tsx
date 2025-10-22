@@ -36,7 +36,7 @@ export default function FartApp() {
           Fart Machine
         </h1>
         <p className="text-xl text-white mb-8 drop-shadow-md">
-          Click the button to release the gas!
+          CLICK THE BUTTON TO RELEASE THE GAS!
         </p>
         
         <button
@@ -90,6 +90,7 @@ export default function FartApp() {
     </div>
   );
 }
+
 
 
 
