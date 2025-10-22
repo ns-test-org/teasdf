@@ -43,7 +43,7 @@ export default function FartApp() {
           onClick={handleFartClick}
           className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-6 px-12 rounded-full text-2xl shadow-2xl transform hover:scale-110 transition-all duration-200 active:scale-95 border-4 border-yellow-600 hover:border-yellow-700"
         >
-          💨 FART! 💨
+          FART
         </button>
         
         <div className="mt-6 text-white text-lg drop-shadow-md">
@@ -90,5 +90,6 @@ export default function FartApp() {
     </div>
   );
 }
+
 
 
