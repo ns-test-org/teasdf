@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function FartApp() {
   const [fartEmojis, setFartEmojis] = useState<Array<{ id: number; x: number; y: number }>>([]);
   const [clickCount, setClickCount] = useState(0);
+  const [isCounterAnimating, setIsCounterAnimating] = useState(false);
 
   const handleFartClick = () => {
     const newId = Date.now();
@@ -13,6 +14,14 @@ export default function FartApp() {
     
     setFartEmojis(prev => [...prev, { id: newId, x: randomX, y: randomY }]);
     setClickCount(prev => prev + 1);
+    
+    // Start counter animation
+    setIsCounterAnimating(true);
+    
+    // Stop counter animation after 2 seconds
+    setTimeout(() => {
+      setIsCounterAnimating(false);
+    }, 2000);
     
     // Remove the emoji after 3 seconds
     setTimeout(() => {
@@ -46,7 +55,7 @@ export default function FartApp() {
           FART
         </button>
         
-        <div className="mt-6 text-white text-lg drop-shadow-md">
+        <div className={`mt-6 text-white text-lg drop-shadow-md transition-transform duration-100 ${isCounterAnimating ? 'animate-bounce' : ''}`}>
           Total Farts: <span className="font-bold text-yellow-300">{clickCount}</span>
         </div>
       </div>
@@ -135,6 +144,9 @@ export default function FartApp() {
     </div>
   );
 }
+
+
+
 
 
 
