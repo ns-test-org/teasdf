@@ -47,7 +47,7 @@ export default function FartApp() {
         </button>
         
         <div className="mt-6 text-white text-lg drop-shadow-md">
-          Farts Released: <span className="font-bold text-yellow-300">{clickCount}</span>
+          Total Farts: <span className="font-bold text-yellow-300">{clickCount}</span>
         </div>
       </div>
 
@@ -90,6 +90,7 @@ export default function FartApp() {
     </div>
   );
 }
+
 
 
 
