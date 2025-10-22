@@ -56,7 +56,7 @@ export default function FartApp() {
         </button>
         
         <div className={`mt-6 text-white text-lg drop-shadow-md transition-transform duration-100 ${isCounterAnimating ? 'animate-bounce' : ''}`}>
-          Total Farts: <span className="font-bold text-yellow-300">{clickCount}</span>
+          Total Farts: <span className="font-bold text-blue-400">{clickCount}</span>
         </div>
       </div>
 
@@ -144,6 +144,7 @@ export default function FartApp() {
     </div>
   );
 }
+
 
 
 
