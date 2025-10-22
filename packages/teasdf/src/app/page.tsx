@@ -1,104 +1,93 @@
-import Image from "next/image";
-import Link from "next/link";
+'use client';
 
-export default function Home() {
+import { useState } from 'react';
+
+export default function FartApp() {
+  const [fartEmojis, setFartEmojis] = useState<Array<{ id: number; x: number; y: number }>>([]);
+  const [clickCount, setClickCount] = useState(0);
+
+  const handleFartClick = () => {
+    const newId = Date.now();
+    const randomX = Math.random() * 80 + 10; // 10% to 90% of screen width
+    const randomY = Math.random() * 60 + 20; // 20% to 80% of screen height
+    
+    setFartEmojis(prev => [...prev, { id: newId, x: randomX, y: randomY }]);
+    setClickCount(prev => prev + 1);
+    
+    // Remove the emoji after 3 seconds
+    setTimeout(() => {
+      setFartEmojis(prev => prev.filter(emoji => emoji.id !== newId));
+    }, 3000);
+  };
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-10 left-10 text-6xl animate-bounce">💨</div>
+        <div className="absolute top-20 right-20 text-4xl animate-pulse">💨</div>
+        <div className="absolute bottom-20 left-20 text-5xl animate-bounce delay-1000">💨</div>
+        <div className="absolute bottom-10 right-10 text-3xl animate-pulse delay-500">💨</div>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <Link
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </Link>
-          <Link
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </Link>
+      {/* Main content */}
+      <div className="text-center z-10">
+        <h1 className="text-6xl font-bold text-white mb-4 drop-shadow-lg animate-pulse">
+          💨 Fart Button 💨
+        </h1>
+        <p className="text-xl text-white mb-8 drop-shadow-md">
+          Click the button to release the gas!
+        </p>
+        
+        <button
+          onClick={handleFartClick}
+          className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-6 px-12 rounded-full text-2xl shadow-2xl transform hover:scale-110 transition-all duration-200 active:scale-95 border-4 border-yellow-600 hover:border-yellow-700"
+        >
+          💨 FART! 💨
+        </button>
+        
+        <div className="mt-6 text-white text-lg drop-shadow-md">
+          Farts Released: <span className="font-bold text-yellow-300">{clickCount}</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </div>
+
+      {/* Floating fart emojis */}
+      {fartEmojis.map((emoji) => (
+        <div
+          key={emoji.id}
+          className="absolute text-8xl animate-bounce pointer-events-none"
+          style={{
+            left: `${emoji.x}%`,
+            top: `${emoji.y}%`,
+            animation: 'fartFloat 3s ease-out forwards'
+          }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </Link>
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </Link>
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </Link>
-      </footer>
+          💨
+        </div>
+      ))}
+
+      {/* Footer */}
+      <div className="absolute bottom-4 text-white text-sm opacity-75">
+        Made with 💨 and ❤️
+      </div>
+
+      <style jsx>{`
+        @keyframes fartFloat {
+          0% {
+            opacity: 1;
+            transform: scale(0) rotate(0deg);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.2) rotate(180deg);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(0.8) rotate(360deg) translateY(-100px);
+          }
+        }
+      `}</style>
     </div>
   );
 }
+
